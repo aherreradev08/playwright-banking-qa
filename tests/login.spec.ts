@@ -21,11 +21,18 @@ test.describe('Login Page', () => {
 	});
 
 	test('BANK-AUTH-04', async ({ loginPage }) => {
-		await loginPage.forgotPassword('asdsdas@yahoo.com');
+		await loginPage.forgotPassword('forgot_password@yahoo.com');
 	});
 
 	test('BANK-AUTH-05', async ({ loginPage }) => {
 		await loginPage.login('apex_2fa', 'Password2FA!');
 		await loginPage.otpInputLogin('123456');
+	});
+
+	test('BANK-AUTH-06', async ({ loginPage }) => {
+		await loginPage.login('apex_user', 'wrongpassword');
+		await expect(loginPage.errorMessage).toHaveText(
+			'Invalid username or password',
+		);
 	});
 });
