@@ -21,7 +21,7 @@ test.describe('Login Page', () => {
 	});
 
 	test('BANK-AUTH-04', async ({ loginPage }) => {
-		await loginPage.forgotPassword('forgot_password@yahoo.com');
+		await loginPage.forgotPassword('forgot_password1@yahoo.com');
 	});
 
 	test('BANK-AUTH-05', async ({ loginPage }) => {
